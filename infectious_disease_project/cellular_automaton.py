@@ -23,7 +23,7 @@ class CellularAutomaton:
         row, col = int(initial_bed[0]), int(initial_bed[1])
         grid[row][col] = 'ill'
 
-        # Set the neighboring beds as infectable
+        # Set the neighboring beds as infectables
         neighbors = self.get_neighbors(row, col)
         for neighbor in neighbors:
             n_row, n_col = neighbor
