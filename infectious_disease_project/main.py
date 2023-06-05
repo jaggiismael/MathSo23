@@ -1,32 +1,28 @@
-from cellular_automaton import CellularAutomaton
-from animation import generate_animation
+import cellular_automaton
+import numpy as np
 
 def get_user_input():
-    # Implement code to get user input for parameters
-    # such as n, m, initial infected bed, probability of infection (p), duration of illness (k)
-    # Return the values entered by the user
-    
     n = int(input("Enter the number of rows in the dormitory: "))
     m = int(input("Enter the number of columns in the dormitory: "))
     initial_bed = input("Enter the initial infected bed position (in the format 'row,column'): ")
+    initial_bed = tuple(map(int, initial_bed.split(',')))
     p = float(input("Enter the probability of infection (0 < p < 1): "))
     k = int(input("Enter the duration of illness (in days): "))
-
-    # Return the entered values as a tuple
-    return n, m, initial_bed, p, k
+    repetitions = int(input("Enter the number of repetitions: "))
+    return n, m, initial_bed, p, k, repetitions
 
 def main():
-    # Get user input
-    n, m, initial_bed, p, k = get_user_input()
+    n, m, initial_bed, p, k, repetitions = get_user_input()
+    grid = cellular_automaton.initialize_grid(n, m, initial_bed)
+    grid_list = [grid.copy()]
 
-    # Initialize the cellular automaton
-    automaton = CellularAutomaton(n, m, initial_bed, p, k)
+    for _ in range(repetitions):
+        grid = cellular_automaton.simulate_spread(grid, p, k)
+        grid_list.append(grid.copy())
 
-    # Simulate the disease spread
-    automaton.simulate_spread()
+    for grid in grid_list:
+        print(grid)
+        print()
 
-    # Generate animation
-    generate_animation(automaton.grid)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

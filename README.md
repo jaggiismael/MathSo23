@@ -31,3 +31,17 @@ Now extend this model:
 </ul>
 <br/>Illustrate the influence of each of these extensions on the spread of the disease for a few
 selected examples.
+
+## How to run it
+Once installed via GitHub, you can go in the folder of the project called "infectious_disease_project" and type "python main.py" in the terminal
+Then, fill the questions that appear on the terminal by pressing a number + enter 
+
+## Where the project is, what we need to do
+Now, the spray of the disease works, now we need to go further by having multiple parameters per bed : 
+The grid is now a table of a table, but that is not enough to store multiple values. We have two solutions : 
+First one, we keep it like that and we change the numbers accordingly (which is bad if we increase the complexity later)
+Second option is to make an other layer of table so that we can have multiple parameters per bed. Ex : status, number of days ill, vaccinated, dead, etc.
+
+(of course the second is better but it's more complex to work with).
+
+The next job will be to introduce the numbers of days that the patient is ill, and, at the end, that he can enter in a "immune" state (he can't have the disease anymore). 
