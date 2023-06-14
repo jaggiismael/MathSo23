@@ -30,7 +30,7 @@ def simulate_spread(grid, p, k):
                     new_grid[i,j] -= 1               
                     for neighbor in get_neighbors(grid, i, j):
                         if grid[neighbor] == 0 and np.random.rand() < p:
-                            new_grid[neighbor] = 2+k #set the neighbor ill                
+                            new_grid[neighbor] = 1+k #set the neighbor ill                
     return new_grid
 
 def simulate_spread_vaccines(grid, p, k, v):
@@ -46,7 +46,7 @@ def simulate_spread_vaccines(grid, p, k, v):
                     new_grid[i,j] -= 1               
                     for neighbor in get_neighbors(grid, i, j):
                         if grid[neighbor] == 0 and np.random.rand() < p:
-                            new_grid[neighbor] = 2+k #set the neighbor ill  
+                            new_grid[neighbor] = 1+k #set the neighbor ill  
                             uninfectedBeds -= 1 
     
     if uninfectedBeds < v:
