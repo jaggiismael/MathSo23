@@ -4,7 +4,7 @@ import matplotlib.animation as animation
 from matplotlib.colors import ListedColormap
 
 # Define the colors for different bed states
-colors = ['blue', 'yellow', 'green']
+colors = ['grey', 'green', 'red', 'yellow']
 cmap = ListedColormap(colors)
 
 def generate_animation(grid_list):
@@ -18,6 +18,8 @@ def generate_animation(grid_list):
                 grid_array[i][j] = 1
             elif grid_list[0][i][j] == 'immune':
                 grid_array[i][j] = 2
+            elif grid_list[0][i][j] == 'vaccinated':
+                grid_array[i][j] = 3
 
     fig, ax = plt.subplots()
     img = ax.imshow(grid_array, cmap=cmap, interpolation='nearest', vmin=0, vmax=2)

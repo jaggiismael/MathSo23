@@ -2,6 +2,10 @@ import cellular_automaton
 import animation
 import numpy as np
 
+def get_user_choice():
+    c = int(input("Enter the number of your choice:\n1: Normal Execute\n2: With Vaccination "))
+    return c
+
 def get_user_input():
     n = int(input("Enter the number of rows in the dormitory: "))
     m = int(input("Enter the number of columns in the dormitory: "))
@@ -12,14 +16,25 @@ def get_user_input():
     repetitions = int(input("Enter the number of repetitions: "))
     return n, m, initial_bed, p, k, repetitions
 
+def get_user_input_vaccines():
+    v = int(input("Enter the number of vaccines per day: "))
+    return v
+
 def main():
+    c = get_user_choice()
     n, m, initial_bed, p, k, repetitions = get_user_input()
-    grid = cellular_automaton.initialize_grid(n, m, initial_bed)
+    grid = cellular_automaton.initialize_grid(n, m, initial_bed, k)
     grid_list = [grid.copy()]
 
-    for _ in range(repetitions):
-        grid = cellular_automaton.simulate_spread(grid, p, k)
-        grid_list.append(grid.copy())
+    if(c == 2):
+        v = get_user_input_vaccines()
+        for _ in range(repetitions):
+            grid = cellular_automaton.simulate_spread_vaccines(grid, p, k, v)
+            grid_list.append(grid.copy())
+    else:
+        for _ in range(repetitions):
+            grid = cellular_automaton.simulate_spread(grid, p, k)
+            grid_list.append(grid.copy())
 
     for grid in grid_list:
         print(grid)
