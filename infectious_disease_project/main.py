@@ -1,4 +1,5 @@
 import cellular_automaton
+import animation
 import numpy as np
 
 def get_user_input():
@@ -23,6 +24,10 @@ def main():
     for grid in grid_list:
         print(grid)
         print()
+
+    animation.generate_animation(grid_list)
+
+    
 
 if __name__ == "__main__":
     main()
