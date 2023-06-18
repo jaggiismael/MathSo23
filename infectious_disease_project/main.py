@@ -67,6 +67,8 @@ def main():
         print()
 
     animation.generate_animation(grid_list)
+    animation.plot_recurrence(grid_list)
+    animation.generate_3d_animation(grid_list)
 
     
 
