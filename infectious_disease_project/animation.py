@@ -5,7 +5,7 @@ import matplotlib.animation as animation
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
-def generate_animation(grid_list):
+def generate_animation(grid_list, save_path='animation.mp4'):
     # Check for NaN and infinity values in grid_list and replace them with 0
     grid_list = [np.where(np.isnan(grid) | np.isinf(grid), 0, grid) for grid in grid_list]
 
@@ -31,6 +31,11 @@ def generate_animation(grid_list):
 
     # Create the animation
     anim = animation.FuncAnimation(fig, update, frames=grid_list, interval=500, blit=True)
+
+    # Save the animation
+    writer = animation.FFMpegWriter(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+    anim.save(save_path, writer=writer)
+
 
     # Show the animation
     plt.show()
