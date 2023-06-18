@@ -59,7 +59,7 @@ def main():
         grid_list = [grid.copy()]
         
         for _ in range(repetitions):
-            grid = cellular_automaton.simulate_spread_incubation(grid, p, k, v, bs, incu)
+            grid = cellular_automaton.simulate_spread_all(grid, p, k, v, bs, incu)
             grid_list.append(grid.copy())
 
     for grid in grid_list:
