@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 def initialize_grid(n, m, initial_bed, k, incu):
     grid = np.zeros((n, m))
@@ -31,7 +32,7 @@ def simulate_spread(grid, p, k, v, bs, incu):
                 new_grid[i,j] -= 1               
                 for neighbor in get_neighbors(grid, i, j):
                     if new_grid[i,j] <= 1+k:        #check if incubation time is over
-                        if grid[neighbor] == 0 and np.random.rand() < p:
+                        if grid[neighbor] == 0 and random.uniform(0, 1) < p:
                             new_grid[neighbor] = 1+k+incu #set the neighbor ill  
                             uninfectedBeds -= 1 
     
@@ -51,8 +52,8 @@ def vaccinate(v, new_grid):
     n, m = new_grid.shape
     vaccinated = 0
     while(vaccinated < v):
-        randi = np.random.randint(0,n-1)
-        randj = np.random.randint(0, m-1)
+        randi = random.randint(0,n-1)
+        randj = random.randint(0, m-1)
         if new_grid[randi, randj] == 0:
             new_grid[randi, randj] = -1
             vaccinated += 1
@@ -63,10 +64,10 @@ def bed_swap(bs, new_grid):
     n, m = new_grid.shape
     bedsSwaped = 0
     while(bedsSwaped < bs):
-        randi1 = np.random.randint(0,n-1)
-        randj1 = np.random.randint(0, m-1)
-        randi2 = np.random.randint(0,n-1)
-        randj2 = np.random.randint(0, m-1)
+        randi1 = random.randint(0,n-1)
+        randj1 = random.randint(0, m-1)
+        randi2 = random.randint(0,n-1)
+        randj2 = random.randint(0, m-1)
         tmpVal = new_grid[randi1, randj1]
         new_grid[randi1, randj1] = new_grid[randi2, randj2]
         new_grid[randi2, randj2] = tmpVal
