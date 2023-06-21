@@ -36,12 +36,10 @@ selected examples.
 Once installed via GitHub, you can go in the folder of the project called "infectious_disease_project" and type "python main.py" in the terminal
 Then, fill the questions that appear on the terminal by pressing a number + enter 
 
-## Where the project is, what we need to do
-Now, the spray of the disease works, now we need to go further by having multiple parameters per bed : 
-The grid is now a table of a table, but that is not enough to store multiple values. We have two solutions : 
-First one, we keep it like that and we change the numbers accordingly (which is bad if we increase the complexity later)
-Second option is to make an other layer of table so that we can have multiple parameters per bed. Ex : status, number of days ill, vaccinated, dead, etc.
+## Work repartition
+We both started to work, during class, on this project until we had the base of the project (the basic first spread and an animation that was not working really well).
+Then, we separated the job like the following : Ismael was responsible of developing the vaccination, bed swao and the incubation methods and Theo was responsible of making the 
+three different animation. Then, we have made the jupiter notebook. The repartition for it was like so : Ismael did the presentation of the first technical parts and Theo presented 
+the simulation and the animation part. 
 
-(of course the second is better but it's more complex to work with).
-
-The next job will be to introduce the numbers of days that the patient is ill, and, at the end, that he can enter in a "immune" state (he can't have the disease anymore). 
+Overall, we think that we work the same amount of time on that project.
