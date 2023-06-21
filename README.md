@@ -34,7 +34,10 @@ selected examples.
 
 ## How to run it
 Once installed via GitHub, you can go in the folder of the project called "infectious_disease_project" and type "python main.py" in the terminal
-Then, fill the questions that appear on the terminal by pressing a number + enter 
+Then, fill the questions that appear on the terminal by pressing a number + enter. 
+
+There is also a library that we added in order to save files. You can just paste this command in the terminal : 
+conda install -c conda-forge ffmpeg
 
 ## Work repartition
 We both started to work, during class, on this project until we had the base of the project (the basic first spread and an animation that was not working really well).
